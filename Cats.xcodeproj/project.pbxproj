@@ -16,6 +16,7 @@
 		9F0BAF1121FA52F400F39280 /* CatsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F0BAF1021FA52F400F39280 /* CatsTests.m */; };
 		9F0BAF1C21FA52F400F39280 /* CatsUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F0BAF1B21FA52F400F39280 /* CatsUITests.m */; };
 		9F0BAF2B21FA63CC00F39280 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F0BAF2A21FA63CC00F39280 /* Photo.m */; };
+		9F0BAF2E21FA6E5E00F39280 /* Album.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F0BAF2D21FA6E5E00F39280 /* Album.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,8 @@
 		9F0BAF1D21FA52F400F39280 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9F0BAF2921FA63CC00F39280 /* Photo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Photo.h; sourceTree = "<group>"; };
 		9F0BAF2A21FA63CC00F39280 /* Photo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Photo.m; sourceTree = "<group>"; };
+		9F0BAF2C21FA6E5E00F39280 /* Album.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Album.h; sourceTree = "<group>"; };
+		9F0BAF2D21FA6E5E00F39280 /* Album.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Album.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +111,8 @@
 				9F0BAEF821FA52F300F39280 /* AppDelegate.m */,
 				9F0BAEFA21FA52F300F39280 /* CatViewController.h */,
 				9F0BAEFB21FA52F300F39280 /* CatViewController.m */,
+				9F0BAF2C21FA6E5E00F39280 /* Album.h */,
+				9F0BAF2D21FA6E5E00F39280 /* Album.m */,
 				9F0BAF2921FA63CC00F39280 /* Photo.h */,
 				9F0BAF2A21FA63CC00F39280 /* Photo.m */,
 				9F0BAEFD21FA52F300F39280 /* Main.storyboard */,
@@ -270,6 +275,7 @@
 				9F0BAF2B21FA63CC00F39280 /* Photo.m in Sources */,
 				9F0BAEFC21FA52F300F39280 /* CatViewController.m in Sources */,
 				9F0BAF0721FA52F400F39280 /* main.m in Sources */,
+				9F0BAF2E21FA6E5E00F39280 /* Album.m in Sources */,
 				9F0BAEF921FA52F300F39280 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

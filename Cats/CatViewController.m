@@ -7,12 +7,16 @@
 //
 
 #import "CatViewController.h"
+#import "Photo.h"
+#import "Album.h"
 
 @interface CatViewController () <UITableViewDataSource>
 
 @property (nonatomic, strong) NSArray<NSDictionary *> *objects;
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+@property (strong, nonatomic, readwrite) Album *album;
 
 @end
 
@@ -51,10 +55,43 @@
         
         self.objects = json[@"photos"][@"photo"];
         
-        NSLog(@"objects are %@", self.objects);
+       // NSLog(@"objects are %@", self.objects);
         
         NSLog(@"one object is %@", [self.objects objectAtIndex:5]);
         
+        
+        /* one cat's info includes:
+        farm
+         id
+         isfamily
+         isfriend
+         ispublic
+         owner
+         secret
+         server
+         title
+         */
+        
+        for(int i = 0; i < [self.objects count]; i++){
+        
+            NSString *photoId = [[self.objects objectAtIndex:i] objectForKey:@"id"];
+
+            NSString *owner = [[self.objects objectAtIndex:i] objectForKey:@"owner"];
+            NSString *secret = [[self.objects objectAtIndex:i] objectForKey:@"secret"];
+            NSString *title = [[self.objects objectAtIndex:i] objectForKey:@"title"];
+            NSString *server = [[self.objects objectAtIndex:i] objectForKey:@"server"];
+            int farm = (int)[[self.objects objectAtIndex:i] objectForKey:@"farm"];
+            BOOL isFamily = [[self.objects objectAtIndex:i] objectForKey:@"isfamily"];
+            BOOL isFriend = [[self.objects objectAtIndex:i] objectForKey:@"isfriend"];
+            BOOL isPublic = [[self.objects objectAtIndex:i] objectForKey:@"isPublic"];
+            
+
+        
+            Photo *photo = [[Photo alloc] initWithId:photoId andOwner:owner andSecret:secret andServer:server andFarm:farm andTitle:title andIsPublic:isPublic andIsFriend:isFriend andIsFamily:isFamily];
+            
+            [self.album addPhotoToAlbum:photo];
+            
+        }
         
         // Update the ui on the main queue.
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
@@ -64,6 +101,8 @@
     }];
     
     [task resume];
+    
+    //NSLog(@"%@", self.album);
 }
 // end end
 
@@ -71,8 +110,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    
+    self.album = [[Album alloc] init];
     [self getAllImages:@"cat"];
+    
+    
 }
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
@@ -82,7 +123,7 @@
     
 //    cell.textLabel.text = cat[@"photo"];
     
-    NSLog(@"info: %@", [cat objectForKey:@"title"]);
+    //NSLog(@"info: %@", [cat objectForKey:@"title"]);
     
     NSString *title = [NSString stringWithFormat:@"%@",[cat objectForKey:@"title"]];
     
