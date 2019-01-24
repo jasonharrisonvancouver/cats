@@ -23,6 +23,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly) BOOL isPublic;
 @property (nonatomic, readonly) BOOL isFriend;
 @property (nonatomic, readonly) BOOL isFamily;
+@property (nonatomic, strong, readonly) NSString *url;
+
 
 - (instancetype)initWithId:(NSString *)photoId
                   andOwner:(NSString *)owner

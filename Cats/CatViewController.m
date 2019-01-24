@@ -80,7 +80,7 @@
             NSString *secret = [[self.objects objectAtIndex:i] objectForKey:@"secret"];
             NSString *title = [[self.objects objectAtIndex:i] objectForKey:@"title"];
             NSString *server = [[self.objects objectAtIndex:i] objectForKey:@"server"];
-            int farm = (int)[[self.objects objectAtIndex:i] objectForKey:@"farm"];
+            int farm = [[[self.objects objectAtIndex:i] objectForKey:@"farm"] intValue];
             BOOL isFamily = [[self.objects objectAtIndex:i] objectForKey:@"isfamily"];
             BOOL isFriend = [[self.objects objectAtIndex:i] objectForKey:@"isfriend"];
             BOOL isPublic = [[self.objects objectAtIndex:i] objectForKey:@"isPublic"];
