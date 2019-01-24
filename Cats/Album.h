@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)addPhotoToAlbum:(Photo *)photo;
 
+- (Photo *)getPhotoAtIndex:(int)index;
 
 @end
 

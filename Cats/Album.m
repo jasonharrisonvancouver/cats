@@ -23,4 +23,8 @@
     [self.album addObject:photo];
 }
 
+- (Photo *)getPhotoAtIndex:(int)index{
+    return [self.album objectAtIndex:index];
+}
+
 @end
