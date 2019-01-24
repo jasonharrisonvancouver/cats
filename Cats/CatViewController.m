@@ -153,7 +153,7 @@
     
     // start
   
-        
+       /* THIS WORKED TOO
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),
                        ^{
                            NSURL *imageURL = [NSURL URLWithString:url];
@@ -169,9 +169,42 @@
                                
                            });
                        });
-        
+        */
+    
+    /* jason jason start */
+    NSURL *urlDt = [NSURL URLWithString:url]; // 1
+    
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration]; // 2
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration]; // 3
+    
+    NSURLSessionDownloadTask *downloadTask = [session downloadTaskWithURL:urlDt completionHandler:^(NSURL * _Nullable loc, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+       
+     //   NSURLSessionDownloadTask *downloadTask = [session downloadTaskWithURL:urlDt completionHandler:^(NSURL * _Nullable location, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+            
+            if (error) { // 1
+                // Handle the error
+                NSLog(@"error: %@", error.localizedDescription);
+                return;
+            }
+            
+            NSData *data = [NSData dataWithContentsOfURL:loc];
+            UIImage *imagenew = [UIImage imageWithData:data]; // 2
+            
+            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                // This will run on the main queue
+                
+                cell.imageView.image = imagenew; // 4
+            }];
+            
+       // }];
+    }]; // 4
+    
+    [downloadTask resume]; // 5
     
     
+    
+    
+    /* jason jason end */
     
     return cell;
 }
